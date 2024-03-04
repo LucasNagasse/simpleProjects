@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validar número</title>
+    <style>
+      body {
+        background-color: dimgray;
+      }
+      span {
+        color: white;
+      }
+      #divResposta {
+        margin: 20px;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: steelblue;
+        width: fit-content;
+        color: white;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divResposta"></div>
+    <span>Insira um valor: </span><input type="text" id="inputNumero" />
+    <br />
+    <button onclick="verificarNumero()">Verificar se o texto inserido é um número</button>
+  </body>
+</html>
+<script>
+  // declaração das variáveis:
+  // variáveis de função:
+  var variavelFuncao = 0;
+
+  // delcaração das funções:
+  function validarNumero() { // valida se o valor armazenado em `variavelFuncao` é um número
+    var validado = false; // delcara uma variável local para dizer se é validado ou não
+    if (variavelFuncao > 0) { // caso for maior que 0, executa o bloco de código abaixo:
+      validado = true; // altera o valor da variável `validado` para `true`
+    }
+    if (variavelFuncao <= 0) { // caso for menor ou igual à 0, executa o bloco de código abaixo:
+      validado = true; // altera o valor da variável `validado` para `true`
+    }
+    // caso o valor de `variavelFuncao` seja uma letra ou NaN (Not a Number, não é um número), ambos os if's falharão e o valor de validado continuará `false`
+    variavelFuncao = validado; // altera o valor da variável `variavelFuncao` para `true` ou `false` dependendo da validação
+  }
+  function verificarNumero() { // verifica se o texto inserido em `inputNumero` é um número e armazena o valor no conteúdo de `divResposta`
+    variavelFuncao = Number(inputNumero.value); // armazena o valor de `inputNumero` em `variavelFuncao`
+    var valorInputNumero = variavelFuncao;
+    validarNumero(); // chama a função `validarNumero()`
+    if (variavelFuncao == true) {
+      variavelFuncao = validarNumero;
+      divResposta.innerHTML = valorInputNumero + " é um número";
+    } else {
+      divResposta.innerHTML = "O valor inserido não é um número";
+    }
+  }
+  // no caso desse código em específico, quase todo o código pode ser substituido por uma forma mais simples de se executar a mesma tarefa, mas essa forma é serve de padrão e é mais útil em códigos maiores ou caso você queira utilizar a função dentro do código para testar se uma variável interna é um número, sem alterar o valor dela
+
+  // outra forma de executar a mesma tarefa:
+
+  function verificarNumero2() {
+    divResposta.innerHTML = "O valor inserido não é um número";
+    if (Number(inputNumero.value) > 0) {
+      divResposta.innerHTML = valorInputNumero + " é um número";
+    }
+    if (Number(inputNumero.value) <= 0) {
+      divResposta.innerHTML = valorInputNumero + " é um número";
+    }
+  }
+
+  // início do código:
+  divResposta.innerHTML = "Bondia"; // marca d'água
+</script>

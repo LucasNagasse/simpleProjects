@@ -1,0 +1,172 @@
+<!DOCTYPE html>  <!-- informando o tipo de documento -->
+<html lang="pt-BR"> <!-- início da tag da página em si com idioma em português do Brasil -->
+  <head> <!-- tag de metadados -->
+    <meta charset="UTF-8" /> <!-- definição da codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- configuração de tamanho da página -->
+    <title>Mover</title> <!-- título da página (o que aparece na aba do navegador) -->
+  </head>
+  <body> <!-- tag de corpo da página -->
+    <div id="divM">bbbbpbbbb</div> <!-- tag de divisória (serve de tag genérica) -->
+    <button onclick="left()">Esquerda</button> <!-- botão para mover para a esquerda, quando clicado chamará a função inserida no atributo `onclick` -->
+    <button onclick="right()">Direita</button>  <!-- botão para mover para a direita -->
+  </body>
+</html> <!-- fim da tag da página -->
+<script>
+  // Criado apenas com os conceitos ensinados em sala
+  var max = 9; // tamanho horizontal máximo
+  var p = 5; // player, partícula, posição, usei a letra p pra ficar mais genérico
+  function left() { // início da função `left`, move o `p` para a esquerda
+    p = p - 1; // muda a posição do p um caractere para a esquerda
+
+    if (p < 1) { // caso o valor de `p` seja menor que 1
+      p = 1; // armazenar o valor 1 na variável `p`
+    }
+
+    var qtdB = p; // quantidade de b's que precisam ser colocados antes do "p"
+
+    divM.innerHTML = ""; // limpando o conteúdo da div
+
+    if (qtdB > 1) { // caso a quantidade de b's seja maior que 1
+      divM.innerHTML = divM.innerHTML + "b"; // adicionar "b" no conteúdo da div
+      qtdB = qtdB - 1; // atualizar a quantidade de b's que faltam ser colocados
+    }
+    // repetir o processo +7 vezes:
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    divM.innerHTML = divM.innerHTML + "p"; // adicionar "p" no conteúdo da div
+    qtdB = max - p; // atualizar a quantidade de b's para a quantidade necessária depois do "p"
+    if (qtdB > 0) { // caso a quantidade de b's seja maior que 0 em vez de 1, já que o "p" está incluso
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+    if (qtdB > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      qtdB = qtdB - 1;
+    }
+  }
+  function right() { // início da função `right`, move o `p` para a direita
+    p = p + 1; // muda a posição do p um caractere para a direita
+
+    if (p > 9) { // caso o valor de `p` seja maior que 9
+      p = 9; // armazenar o valor 9 na variável `p`
+    }
+    // o resto é basicamente igual a função `left`
+    var p2 = p;
+
+    divM.innerHTML = "";
+
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 1) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    divM.innerHTML = divM.innerHTML + "p";
+    p2 = max - p;
+    // a única diferença é que aqui só são necessários 7 ifs, pois o "p" vai se mover para a direita de qualquer forma
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+    if (p2 > 0) {
+      divM.innerHTML = divM.innerHTML + "b";
+      p2 = p2 - 1;
+    }
+  }
+</script>

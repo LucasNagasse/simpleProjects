@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divisão</title>
+    <style>
+      body {
+        background-color: dimgray;
+      }
+      span {
+        color: white;
+      }
+      #divResposta {
+        margin: 20px;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: steelblue;
+        width: fit-content;
+        color: white;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divResposta"></div>
+    <span>Insira o primeiro valor: </span><input type="number" id="input1" />
+    <br />
+    <span>Insira o segundo valor: </span><input type="number" id="input2" />
+    <br />
+    <button onclick="fBtnDivisao()">Dividir</button>
+    <br />
+    <span>Obs: A calculadora só aceita números naturais.</span>
+  </body>
+</html>
+<script>
+  // o código escrito se limita ao conjunto dos naturais
+  // declaração das variáveis:
+  var variavelFuncao = 0;
+  var variavelFuncao2 = 0;
+
+  // delcaração das funções:
+  function validarNumero() { // valida se o valor armazenado em `variavelFuncao` é um número e armazena o resultado em si mesma (`variavelFuncao`)
+    var validado = false; // delcara uma variável local para dizer se é um número ou não
+    if (variavelFuncao > 0) { // caso o valor de `variavelFuncao` for maior que 0, executa o bloco de código abaixo:
+      validado = true; // altera o valor da variável `validado` para `true`
+    }
+    if (variavelFuncao <= 0) { // caso o valor de `variavelFuncao` for menor ou igual à 0, executa o bloco de código abaixo:
+      validado = true; // altera o valor da variável `validado` para `true`
+    }
+    // caso o valor da `variavelFuncao` seja uma letra ou NaN (Not a Number, não é um número), ambos os if's falharão e o valor da variável `validado` continuará `false`
+    variavelFuncao = validado; // altera o valor da `variavelFuncao` para `true` ou `false` dependendo da validação
+  }
+  function validarNatural() { // valida se o valor armazenado em `variavelFuncao` é um número natural e armazena o resultado em si mesma (`variavelFuncao`)
+    if (variavelFuncao >= 0) { // caso o valor de `variavelFuncao` for maior ou igual à 0, executa o bloco de código abaixo:
+      variavelFuncao = true; // altera o valor da variável `variavelFuncao` para `true`
+    } else { // caso o valor de `variavelFuncao` for menor que 0, executa o bloco de código abaixo:
+      variavelFuncao = false; // altera o valor da variável `variavelFuncao` para `false`
+    }
+  }
+  function validarOperadores() { // valida se ambos os operadores são números naturais e armazena o resultado da validação em `variavelFuncao`
+    validarNatural(); // valida se o valor armazenado em `variavelFuncao` é um número natural e armazena o resultado em si mesma (`variavelFuncao`)
+    if (variavelFuncao == true) { // caso seja um número natural, executa o bloco de código abaixo:
+      variavelFuncao = variavelFuncao2; // armazena o valor de `variavelFuncao2` na `variavelFuncao`
+      validarNatural(); // valida da mesma forma que validou a variável `variavelFuncao` anteriormente
+    }
+  }
+  function validarDivisao() { // valida se é possível realizar uma divisão de números naturais com os operadores inseridos e armazena o resultado da validação em `variavelFuncao`
+    var n1 = variavelFuncao; // cria uma variável local `n1` e armazena o valor da `variavelFuncao` nela
+    validarOperadores(); // valida se ambos os operadores são números naturais e armazena o resultado da validação em `variavelFuncao`
+    if (variavelFuncao == true) { // caso ambos sejam números naturais, executa o bloco de código abaixo:
+      variavelFuncao = n1; // armazena valor anterior de `variavelFuncao` devolta nela
+      if (variavelFuncao2 == 0) { // caso o divisor seja 0, executa o bloco de código abaixo:
+        variavelFuncao = false; // altera o valor da variável da função para `false`
+        divResposta.innerHTML = divResposta.innerHTML + "Impossível dividir por zero (0)<br />"; // informa o usuário que é impossível dividir por zero
+      } else { // caso o divisor seja diferente de 0, executa o bloco de código abaixo:
+        variavelFuncao = true; // altera o valor da variável da função para `true`
+      }
+    }
+  }
+  function divisao() { // executa uma divisão de números naturais, sendo o dividendo o valor de `variavelFuncao` e o divisor o valor de `variavelFuncao2`, armazena o quociente na própria variável `variavelFuncao`
+    if (variavelFuncao >= variavelFuncao2) { // caso o valor de `variavelFuncao` for maior ou igual à `variavelFuncao2`, executa o bloco de código abaixo:
+      variavelFuncao = variavelFuncao - variavelFuncao2; // subtrai do valor de `variavelFuncao` o valor de `variavelFuncao2`
+      divisao(); // chama a si mesma para repetir o processo
+      variavelFuncao = variavelFuncao + 1; // adiciona 1 ao quociente, depois de toda a divisão ser executada
+    } else { // caso o valor de `variavelFuncao` for menor que `variavelFuncao2`, executa o bloco de código abaixo:
+      variavelFuncao = 0; // altera o valor de `variavelFuncao` para 0, iniciando a conta do quociente/resultado
+    }
+  }
+  function fBtnDivisao() { // função do botão de divisão, executa uma divisão de números naturais com os números inseridos pelo usuário e os mostra na tela
+    divResposta.innerHTML = ""; // limpa o conteúdo da `divResposta`
+    variavelFuncao = Number(input1.value); // armazena o valor de `input1` na `variavelFuncao`
+    variavelFuncao2 = Number(input2.value); // armazena o valor de `input2` na `variavelFuncao2`
+    validarDivisao(); // valida se é possível realizar uma divisão de números naturais com os operadores inseridos e armazena o resultado da validação em `variavelFuncao`
+    if (variavelFuncao == true) { // caso os operadores inseridos forem válidos, executa o bloco de código abaixo:
+      variavelFuncao = Number(input1.value); // armazena valor anterior de `variavelFuncao` devolta nela
+      divisao(); // executa uma divisão de números naturais, sendo o dividendo o valor de `variavelFuncao` e o divisor o valor de `variavelFuncao2`, armazena o quociente na própria variável `variavelFuncao`
+      divResposta.innerHTML = variavelFuncao; // altera o conteúdo de `divResposta`, informando o resultado da divisão
+    } else { // caso os operadores inseridos não forem válidos, executa o bloco de código abaixo:
+      divResposta.innerHTML = divResposta.innerHTML + "Insira números válidos"; // informa o usuário que os números inseridos não são válidos no conteúdo de `divResposta`
+    }
+  }
+  // início do código:
+  divResposta.innerHTML = "Bondia"; // marca d'água
+</script>

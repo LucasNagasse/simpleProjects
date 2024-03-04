@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mover</title>
+    <!-- aprendemos a estilizar a página na aula de PI-->
+    <style>
+      .externo {
+        margin: 20%;
+        border-radius: 5px;
+        background-color: blue;
+        width: 200px;
+      }
+      #divMapa {
+        font-family: monospace;
+        margin: 50px
+      }
+      .buttons {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body style="background-color: gray">
+    <div class="externo">
+      <div id="divMapa" class="mapa">_________<br />_________<br />_________<br />_________<br />____p____<br />_________<br />_________<br />_________<br />_________</div>
+      <div class="buttons">
+      <button onclick="up()">Cima</button>
+      <br />
+      <button onclick="left()">Esquerda</button>
+      <button onclick="right()">Direita</button>
+      <br />
+      <button onclick="down()">Baixo</button></div>
+    </div>
+  </body>
+</html>
+<script>
+  var maxX = 9; // alterei o nome de `max` para `maxX`
+  var maxY = 9; // adicionei mais uma dimensão (Y)
+  var pX = 5; // alterei o nome de `p` para `pX`
+  var pY = 5; // posição Y
+
+  function left() {
+    pX = pX - 1;
+
+    if (pX < 1) {
+      pX = 1;
+    }
+
+    var qtdU = pX; // alterei os b's por underlines, logo, `qtdB` se tornou `qtdU`
+    var qtdL = pY; // quantidade de linhas
+
+    divMapa.innerHTML = "";
+    if (qtdL > 1) {
+      // caso a posição Y seja maior que 1
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />"; // adiciona 1 linha acima do "p"
+      qtdL = qtdL - 1;
+    }
+    // repetir +7 vezes:
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "p";
+    qtdU = maxX - pX;
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "<br />";
+    qtdL = maxY - pY;
+    // colocando as linhas abaixo do "p":
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+  }
+  function right() {
+    pX = pX + 1;
+
+    if (pX > 9) {
+      pX = 9;
+    }
+
+    var qtdU = pX;
+    var qtdL = pY;
+
+    divMapa.innerHTML = "";
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "p";
+    qtdU = maxX - pX;
+
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "<br />";
+    qtdL = maxY - pY;
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+  }
+  function up() {
+    pY = pY - 1;
+
+    if (pY < 1) {
+      pY = 1;
+    }
+
+    var qtdU = pX;
+    var qtdL = pY;
+
+    divMapa.innerHTML = "";
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "p";
+    qtdU = maxX - pX;
+
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "<br />";
+    qtdL = maxY - pY;
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+  }
+  function down() {
+    pY = pY + 1;
+
+    if (pY > 9) {
+      pY = 9;
+    }
+
+    var qtdU = pX;
+    var qtdL = pY;
+
+    divMapa.innerHTML = "";
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 1) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "p";
+    qtdU = maxX - pX;
+
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    if (qtdU > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_";
+      qtdU = qtdU - 1;
+    }
+    divMapa.innerHTML = divMapa.innerHTML + "<br />";
+    qtdL = maxY - pY;
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+    if (qtdL > 0) {
+      divMapa.innerHTML = divMapa.innerHTML + "_________<br />";
+      qtdL = qtdL - 1;
+    }
+  }
+</script>

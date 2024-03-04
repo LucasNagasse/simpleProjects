@@ -1,0 +1,122 @@
+<!DOCTYPE html>  <!-- informando o tipo de documento -->
+<html lang="pt-BR"> <!-- início da tag da página em si com idioma em português do Brasil -->
+  <head> <!-- tag de metadados -->
+    <meta charset="UTF-8" /> <!-- definição da codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- configuração de tamanho da página -->
+    <title>Mover</title> <!-- título da página (o que aparece na aba do navegador) -->
+    <!-- aprendemos a estilizar a página com a tag style na aula de PI -->
+    <style>
+      body {
+        background-color: dimgray;
+      }
+      .externo {
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: steelblue;
+        width: fit-content;
+      }
+      .externo .buttons {
+        margin: 5rem;
+      }
+      #divMapa {
+        font-family: monospace;
+        font-size: 2rem;
+        margin: 5rem;
+      }
+    </style>
+  </head>
+  <body> <!-- tag de corpo da página -->
+    <div class="externo"> <!-- tag de divisória (serve de tag genérica) para conter toda a interface -->
+      <div id="divMapa" class="mapa"></div> <!-- div para o mapa -->
+      <div class="buttons"> <!-- div para os botões -->
+        <button onclick="up()">Cima</button> <!-- botão para mover para cima, quando clicado chamará a função inserida no atributo `onclick` -->
+        <br />
+        <button onclick="left()">Esquerda</button>  <!-- botão para mover para a esquerda -->
+        <button onclick="right()">Direita</button>  <!-- botão para mover para a direita -->
+        <br />
+        <button onclick="down()">Baixo</button>  <!-- botão para mover para baixo -->
+      </div>
+    </div>
+  </body>
+</html> <!-- fim da tag da página (html) -->
+<script>
+  // Criado apenas com os conceitos ensinados em sala:
+  // declaração das variáveis:
+  var af = 0; // acumulador da função
+  var vf = ""; // variável da função
+
+  var maxX = 9; // tamanho horizontal máximo
+  var maxY = 9; // tamanho vertical máximo
+  // player, partícula, posição, usei a letra p pra ficar mais genérico:
+  var pX = 5; // posição X
+  var pY = 5; // posição Y
+
+  // declaração das funções:
+  function addString() { // função `add string`, que adiciona o valor da variável `vf` `af` vezes no conteúdo do elemento `divMapa`
+    if (af > 0) { // caso o valor da variável `af` seja maior do que 0, executa o bloco de código abaixo
+      divMapa.innerHTML = divMapa.innerHTML + vf; // adiciona o valor da variável `vf` ao conteúdo do elemento `divMapa`
+      af = af - 1; // subtrai 1 do valor da variável `af`
+      addString(); // chama a si mesma, até o valor de `af` ser menor ou igual à 0
+    }
+  }
+  function cngFrame() { // função "change frame", para atualizar a tela de caracteres
+    divMapa.innerHTML = ""; // limpa o conteúdo do elemento `divMapa`
+    af = pY - 1; // armazena a quantidade de linhas acima da linha que está o "p" na variável `af`
+    vf = "_________<br />"; // armazena o conteúdo de uma linha inteira na variável `vf`
+    addString(); // chama a função addString()
+    af = pX - 1; // armazena a quantidade de caracteres à esquerda do "p" na variável `af`
+    vf = "_"; // armazena um caractere de espaço na variável `vf`
+    addString();
+    divMapa.innerHTML = divMapa.innerHTML + "p"; // adiciona o "p" ao conteúdo do elemento `divMapa`
+    af = maxX - pX; // armazena a quantidade de caracteres à direita do "p" na variável `af`
+    vf = "_";
+    addString();
+    divMapa.innerHTML = divMapa.innerHTML + "<br />"; // adiciona uma quebra de linha ao conteúdo do elemento `divMapa`
+    af = maxY - pY; // armazena a quantidade de linhas abaixo da linha que está o "p" na variável `af`
+    vf = "_________<br />";
+    addString();
+  }
+
+  function left() { // início da função `left`, move o "p" para a esquerda
+    pX = pX - 1; // muda a posição do p um caractere para a esquerda, diminuindo o valor da variável `pX` em 1
+
+    if (pX < 1) { // caso o valor de `pX` seja menor que 1, executa o bloco de código abaixo
+      pX = 1; // armazena o valor 1 na variável `pX`
+    }
+
+    cngFrame(); // chama a função cngFrame()
+  }
+  // as próximas 3 funções fazem o mesmo da left(), mas para os outros lados:
+  function right() {
+    pX = pX + 1; //  // muda a posição do p um caractere para a direita, aumentando o valor da variável `pX` em 1
+
+    if (pX > 9) { // caso o valor de `pX` seja maior que 9, executa o bloco de código abaixo
+      pX = 9; // armazena o valor 9 na variável `pX`
+    }
+
+    cngFrame();
+  }
+  // as próximas 2 funções fazem o mesmo das funções `left()` e `right()`, porém, com a posição vertical:
+  function up() {
+    pY = pY - 1;
+
+    if (pY < 1) {
+      pY = 1;
+    }
+
+    cngFrame();
+  }
+  function down() {
+    pY = pY + 1;
+
+    if (pY > 9) {
+      pY = 9;
+    }
+
+    cngFrame();
+  }
+
+  // início do código efetivamente:
+  cngFrame();
+</script>

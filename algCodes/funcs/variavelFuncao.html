@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variável da função</title>
+    <style>
+      body {
+        background-color: dimgray;
+      }
+      span {
+        color: white;
+      }
+      #divResposta {
+        margin: 20px;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: steelblue;
+        width: fit-content;
+        color: white;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divResposta"></div>
+    <span>Insira um valor: </span><input type="number" id="inputNumero" />
+    <br />
+    <button onclick="calc1()">Calcular esse número menos 1</button>
+    <button onclick="calc2()">Calcular esse número menos 2</button>
+    <button onclick="calc3()">Calcular esse número menos 3</button>
+    <br />
+    <button onclick="calc1Alt()">Calcular esse número menos 1 (botão alternativo)</button>
+    <button onclick="calc2Alt()">Calcular esse número menos 2 (botão alternativo)</button>
+    <button onclick="calc3Alt()">Calcular esse número menos 3 (botão alternativo)</button>
+  </body>
+</html>
+<script>
+  // declaração das variáveis:
+  var variavelFuncao = 0; // é uma variável global, que pode ser acessada por todos os blocos de código, portanto, é uma variável que não muda após a execução de uma função
+
+  // declaração das funções:
+  function calc() { // função que calcula o valor do `inputNumero` menos 1 e adiciona o valor à `divResposta`
+    variavelFuncao = variavelFuncao - 1; // subtrai 1 do valor de `variavelFuncao`
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + variavelFuncao; // adiciona o valor de `variavelFuncao` à `divResposta`
+  }
+
+  // funções com a variável da função:
+  function calc1() { // calcula o valor do `inputNumero` menos 1 e adiciona o valor à `divResposta`
+    divResposta.innerHTML = "Resultados:"; // altera o conteúdo da `divResposta` para "Resultados:"
+    variavelFuncao = Number(inputNumero.value); // armazena o valor do `inputNumero` em `variavelFuncao`
+    calc(); // calcula e mostra o valor de `variavelFuncao` menos 1
+  }
+  function calc2() { // calcula o valor de `inputNumero` menos 2 e adiciona o valor à `divResposta`
+    divResposta.innerHTML = "Resultados:";
+    variavelFuncao = Number(inputNumero.value);
+    calc();
+    calc();
+  }
+  function calc3() { // calcula o valor de `inputNumero` menos 3 e adiciona o valor à `divResposta`
+    divResposta.innerHTML = "Resultados:";
+    variavelFuncao = Number(inputNumero.value);
+    calc();
+    calc();
+    calc();
+  }
+
+  // funções sem a variável da função:
+  function calc1Alt() {
+    divResposta.innerHTML = "Resultados:";
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 1); // esse código faz basicamente o mesmo que a função `calc()`, mas o valor utilizado no cálculo continua o mesmo depois de executar a linha
+  }
+  function calc2Alt() {
+    divResposta.innerHTML = "Resultados:";
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 1); // o resultado do código não será o mesmo se você só copiar e colar diversas vezes
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 2); // terá que alterar um pouco a linha, nesse caso, de 1 para 2
+  }
+  function calc3Alt() {
+    divResposta.innerHTML = "Resultados:";
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 1);
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 2);
+    divResposta.innerHTML = divResposta.innerHTML + "<br />" + (Number(inputNumero.value) - 3); // e nesse, de 1 para 2 para 3
+  }
+
+  // o que quero deixar claro com isso é que usando a variável da função você pode otimizar seu código, facilitando na hora de programar, tendo apenas que chamar uma função diversas vezes, em vez de alterar o código diversas vezes, deixando o código mais dinâmico, além disso existem momentos em que essa variável é necessária, como em loops de funções
+
+  // início do código:
+  divResposta.innerHTML = "Bondia"; // marca d'água
+</script>

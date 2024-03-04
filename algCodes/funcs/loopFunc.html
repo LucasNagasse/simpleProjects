@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Função de loop</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: dimgray;
+      }
+      span {
+        color: white;
+      }
+      #divResposta {
+        margin: 20px;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: steelblue;
+        width: fit-content;
+        color: white;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divResposta"></div>
+    <span>Insira um número: </span><input type="number" id="inputNumero" />
+    <br />
+    <button onclick="confirmar()">Confirmar</button>
+  </body>
+</html>
+<script>
+  // declaração das variáveis:
+  var contador = 0; // contador da função/variável da função
+
+  // declaração das funções:
+  function loop() { // função `loop()`, que adiciona o valor da variável `contador` no conteúdo do elemento `divResposta` e a subtrai até chegar em 0
+    if (contador > 0) { // caso o valor da variável `contador` seja maior do que 0, executa o bloco de código abaixo:
+      divResposta.innerHTML = divResposta.innerHTML + contador + ", "; // adiciona o valor da variável `contador` ao conteúdo do elemento `divResposta`
+      contador = contador - 1; // subtrai 1 do valor da variável `contador`
+      loop(); // chama a si mesma, porém, desta vez o valor da variável `contador` está menor, e a função fará isso até esse valor ser menor ou igual à 0
+    }
+  }
+  function confirmar() { // função `confirmar()`, que testa se o valor do input é válido e inicia a contagem
+    divResposta.innerHTML = ""; // limpa o conteúdo do elemento `divResposta`
+    if (Number(inputNumero.value) >= 0) { // caso o valor do elemento `inputNumero` for maior ou igual à 0, executa o bloco de código abaixo:
+      contador = Number(inputNumero.value); // armazena o valor do elemento `inputNumero` na variável `contador`
+      loop(); // inicia o loop chamando a função `loop()`
+      divResposta.innerHTML = divResposta.innerHTML + "BOOM!"; // adiciona o valor "BOOM!" ao conteúdo do elemento `divResposta`
+    } else { // caso o valor do elemento `inputNumero` for menor que 0, executa o bloco de código abaixo:
+      divResposta.innerHTML = "O número tem que ser igual ou maior que zero (0)"; // altera o conteúdo do elemento `divResposta` para "O número tem que ser igual ou maior que zero (0)"
+    }
+  }
+
+  // dessa forma podemos deixar o código mais dinâmico, executando um bloco de código quantas vezes quisermos, apenas alterando o valor da variável de contagem (normalmente uma das variáveis da função)
+
+  // início do código:
+  divResposta.innerHTML = "Bondia"; // marca d'água
+</script>

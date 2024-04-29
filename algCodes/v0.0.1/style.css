@@ -48,6 +48,10 @@ body {
 .form .inputs label input {
   border-radius: 3px;
 }
+.form .buttons {
+  display: flex;
+  gap: 0.5em;
+}
 
 .warning {
   color: #d01010;

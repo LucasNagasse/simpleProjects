@@ -19,8 +19,15 @@
             <span>Insert an index to read:</span>
             <input id="inputIndex" type="number" />
           </label>
+          <label>
+            <span>Insert a value to replace:</span>
+            <input id="inputReplace" type="text" />
+          </label>
         </div>
-        <button onclick="read()">Read</button>
+        <div class="buttons">
+          <button onclick="buttonRead()">Read</button>
+          <button onclick="buttonWrite()">Write</button>
+        </div>
         <div id="divResponse"></div>
       </div>
     </div>
@@ -30,20 +37,6 @@
   var vf0 = 0;
   var vf1 = 0;
 
-  function getCsv() {
-    var temp = "";
-    for (var c = 0; c <= vf0.length && vf1 >= 0; c++) {
-      if (vf0[c] == "|") {
-        c++;
-        temp += vf0[c];
-      } else if (vf0[c] == "," || c == vf0.length) {
-        if (vf1 == 0) vf0 = temp;
-        temp = "";
-        vf1--;
-      } else temp += vf0[c];
-    }
-  }
-
   function getCsvLenght() {
     var result = 0;
     for (var c = 0; c <= vf0.length; c++)
@@ -52,9 +45,41 @@
     vf0 = result;
   }
 
-  function read() {
-    var index = Number(inputIndex.value);
+  function getCsv() {
+    var temp = "";
+    for (var c = 0; c <= vf0.length && vf1 >= 0; c++) {
+      if (vf0[c] == "," || c == vf0.length) {
+        if (vf1 == 0) vf0 = temp;
+        temp = "";
+        vf1--;
+      } else if (vf0[c] == "|") {
+        c++;
+        temp += vf0[c];
+      } else temp += vf0[c];
+    }
+  }
+
+  function setCsv() {
+    var temp = "";
+    for (var c = 0; c <= vf0.length; c++) {
+      if (vf1 == 0) {
+        temp += vf2;
+        vf1--;
+      }
+      if (vf0[c] == ",") {
+        temp += vf0[c];
+        vf1--;
+      } else if (vf0[c] == "|") {
+        c++;
+        temp += vf0[c];
+      } else if (vf1 != -1 && c < vf0.length) temp += vf0[c];
+    }
+    vf0 = temp;
+  }
+
+  function buttonRead() {
     var multivar = inputMultivar.value;
+    var index = Number(inputIndex.value);
     var response = "";
 
     vf0 = multivar;
@@ -63,6 +88,26 @@
       vf0 = multivar;
       vf1 = index;
       getCsv();
+      response = `<span>Your result: "<span class="response">${vf0}</span>"</span>`;
+    } else {
+      response = `<span class="warning">Index ${index} does not exists.</span>`;
+    }
+    divResponse.style.display = "flex";
+    divResponse.innerHTML = response;
+  }
+  function buttonWrite() {
+    var multivar = inputMultivar.value;
+    var index = Number(inputIndex.value);
+    var replace = inputReplace.value;
+    var response = "";
+
+    vf0 = multivar;
+    getCsvLenght();
+    if (index % 1 == 0 && index >= 0 && index < vf0) {
+      vf0 = multivar;
+      vf1 = index;
+      vf2 = replace;
+      setCsv();
       response = `<span>Your result: "<span class="response">${vf0}</span>"</span>`;
     } else {
       response = `<span class="warning">Index ${index} does not exists.</span>`;
